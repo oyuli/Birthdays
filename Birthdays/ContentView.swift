@@ -12,7 +12,7 @@ struct ContentView: View {
     @State private var newBirthday = Date.now
     
     // friends array
-    @State private var friends: [Friend] = [Friend(name: "Anna", birthday: .now), Friend(name: "Tracey", birthday: .now)]
+    @State private var friends: [Friend] = [Friend(name: "Anna", birthday: .now), Friend(name: "Megan", birthday: .now)]
     
     var body: some View {
         NavigationStack{
@@ -28,7 +28,20 @@ struct ContentView: View {
                 VStack(alignment: .center, spacing: 20) {
                     Text("New Birthday")
                         .font(.headline)
+                    DatePicker(selection: $newBirthday, in: Date.distantPast...Date.now, displayedComponents: .date){TextField("Name", text: $newName)
+                            .textFieldStyle(.roundedBorder)
+                    }
+                    // make button in VStack
+                    Button("Save"){
+                        let newFriend = Friend(name: newName, birthday: newBirthday)
+                        friends.append(newFriend)
+                        newName = ""
+                        newBirthday = .now
+                    }
+                    .bold()
                 }
+                .padding()
+                    .background(.bar)
             }
         }
         // closing the body
