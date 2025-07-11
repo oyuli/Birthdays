@@ -12,7 +12,7 @@ struct ContentView: View {
     @State private var newBirthday = Date.now
     
     // friends array
-    @State private var friends: [Friend] = [Friend(name: "Anna", birthday: .now), Friend(name: "Megan", birthday: .now)]
+    @State private var friends: [Friend] = [Friend(name: "Bub", birthday: .now), Friend(name: "Bob", birthday: .now)]
     
     var body: some View {
         NavigationStack{
